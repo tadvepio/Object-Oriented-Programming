@@ -1,0 +1,12 @@
+Part 4 pseudocode
+
+
+student list = a list
+student grade list = a list
+
+Student list = User inputs name
+Sudent grade list = User inputs grade
+
+the_average = sum of grades in grade list/lenght of student list
+
+print out: "the average score of the class is [the_average]"
