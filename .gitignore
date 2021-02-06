@@ -3,3 +3,4 @@
 *.pdf
 *salasanassh
 *salasanassh.pub
+*__pycache__
