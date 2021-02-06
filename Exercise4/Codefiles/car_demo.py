@@ -59,7 +59,7 @@ class Car:
         self.__maximum_load = int(input("Set maximum load limit: "))
 
     def set_trunk_size(self):
-        self.__trunk_size = int(input("Set trunk size: "))
+        self.__trunk_size = input("Set trunk size: ")
 
     def __str__(self):
         return f"""Your car details:\nMaker: {self.get_maker()}\nModel: {self.get_model()}\nMileage: {self.get_mileage()}
