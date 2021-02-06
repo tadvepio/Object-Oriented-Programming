@@ -8,10 +8,14 @@ Created 06.02.2021
 
 class CellPhone:
 
-	def __init__(self):
+	def __init__(self, id):
+		self.__ID = id
 		self.__manufact = "Nokia"
 		self.__model = "3310"
 		self.__retailPrice = 20
+	
+	def get_ID(self):
+		return self.__ID
 
 	def set_manufact(self):
 		self.__manufact = input("Set manufacturer: ")
@@ -32,4 +36,4 @@ class CellPhone:
 		return self.__retailPrice
 
 	def __str__(self):
-		return f"""\nManufacturer: {self.get_manufact()}\nModel: {self.get_model()}\nRetail price: {self.get_retailPrice()}"""
+		return f"""\nID:{self.get_ID()}\nManufacturer: {self.get_manufact()}\nModel: {self.get_model()}\nRetail price: {self.get_retailPrice()}"""
