@@ -7,6 +7,8 @@ Created 6.02.2021
 """
 
 import CellPhone_demo
+from Dice_demo import Dice
+import random
 
 def main():
 
@@ -29,7 +31,22 @@ def main():
 
 	print("Data for my phone:",my_phone,"\nData for your phone:",your_phone)
 
+	print("\nLet us roll some dice\n")
+
+	dice = Dice("referee")
+	
+	rolling = True
+
+	while rolling:
+		dice.roll()
+		num = int(dice.get_sideup())
+		if num == int(my_phone.get_ID()):
+			print(f"""The phone with id: {my_phone.get_ID()} wins!""")
+			break
+		elif num == int(your_phone.get_ID()):
+			print(f"""The phone with id: {your_phone.get_ID()} wins!""")
+			break
+		else:
+			continue		
+
 main()
-
-
-
