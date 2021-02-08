@@ -13,7 +13,7 @@ import random
 class Dice:
 
 	# Define the data on initalization
-	def __init__(self, owner):
+	def __init__(self, owner,):
 		self.__owner = owner
 		self.sideup = "None"
 		self.color = "None"
