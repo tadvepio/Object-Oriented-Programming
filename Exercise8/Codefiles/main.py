@@ -3,6 +3,8 @@
 # Main for task 1
 
 import flat
+import cookie
+import random
 
 def main():
 
@@ -42,5 +44,60 @@ def main():
     print("\nState 5:\n")
 
     print(my_flat)
+
+    # Task 3: Cookie
+
+    # Create cookies with random flavors and then bake them.
+
+    print("*"*20)
+    print("Time to bake some cookies! Lets make 10!")
+
+    cookies = {}
+    for i in range(10):
+        cookies[i+1] = cookie.Cookie("Round")
+        cookies[i+1].set_random_flavor()
+        cookies[i+1].set_baked()
+    
+    # Print all cookies
+
+    for key in cookies:
+        print("\n")
+        print(cookies[key])
+
+    # Frost the new 10 cookies
+
+    print("\nLets frost those badboys!")
+
+    for key in cookies:
+        cookies[key].set_frosted()
+
+    # Print all cookies
+
+    for key in cookies:
+        print("\n")
+        print(cookies[key])
+
+    # Ask the user if his/her flavor is present. If not, create a new cookie.
+
+    checking = True
+    while checking:
+        check_flavor = input("\nIs your favorite flavor present?(y/n) ")
+        if check_flavor == "y":
+            break
+        elif check_flavor == "n":
+            fav_flav = input("\nWhats your favorite flavor: ")
+            cookies[len(cookies)+1] = cookie.Cookie("Round", fav_flav)
+            cookies[len(cookies)].set_baked()
+            cookies[len(cookies)].set_frosted()
+            break
+        else:
+            print("\nUse the key y or n.")
+
+    # Print all cookies.
+
+    for key in cookies:
+        print("\n")
+        print(cookies[key])
+
 
 main()
