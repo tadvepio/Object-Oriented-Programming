@@ -25,6 +25,7 @@ def main():
             x = country_capital[i][1].rstrip('\n')
             country_capital[i][1] = x
         
+        # Create a dictionray with the new list
         cou_cap = {}
         for i in range(len(country_capital)):
             cou_cap[country_capital[i][0]] = country_capital[i][1]
@@ -33,9 +34,11 @@ def main():
 
             game_mode = int(input("\n1. Play game\n2. Train\n3. Quit\n(1/2/3): "))
             if game_mode == 1 or game_mode == 2:
+                # Create a game specific list
                 game_countries = []
 
-                # Add 10 random pairs from the list to a dictionary
+                # Add 10 random countries from the dictionary and pop from dict to prevent
+                # duplicates
                 for i in range(10):
                     y = random.randint(0,len(country_capital)-1)
                     game_countries.append(country_capital[y][0])
@@ -43,11 +46,12 @@ def main():
 
                 print("Time to play geoquiz! Guess the capital of a country!")
                 score = 0
+                # Ask 10 questions via a for loop
                 for i in range(10):
                     print("\nQuestion",i+1)
-                    print(cou_cap[game_countries[i]])
                     answer = input(f"What is the capital of {game_countries[i]}\n")
                     if answer == cou_cap[game_countries[i]]:
+                        # Check if the user is training or playing the real game
                         if game_mode == 1:
                             score += 1
                             user.set_score(score)
