@@ -5,11 +5,12 @@
 # Description: user class
 
 class User:
-    def __init__(self, name, lastname, balance, ID):
+    def __init__(self, name, lastname, balance, minc, mexp):
         self.__name = name
         self.__lastname = lastname
-        self.__balance = balance
-        self.__ID = ID
+        self.__balance = int(balance)
+        self.__monthly_income = int(minc)
+        self.__monthly_expenses = int(mexp)
 
     def set_name(self,name):
         self.__name = name
@@ -29,10 +30,17 @@ class User:
         self.__balance += add
     def subtract_from_balance(self, sub):
         self.__balance -= sub
-
-    def get_ID(self):
-        return self.__ID
+    
+    def set_monthly_income(self, inc):
+        self.__monthly_income = inc
+    def get_monthly_income(self):
+        return self.__monthly_income
+    
+    def set_monthly_expenses(self,exp):
+        self.__monthly_expense = exp
+    def get_monthly_expenses(self):
+        return self.__monthly_expenses
 
     def __str__(self):
         return f"Firstname: {self.get_name()}\nLastname: {self.get_lastname()}\
-            \nBalance: {self.get_balance()}\nID: {self.get_ID()}"
+            \nBalance: {self.get_balance()}"
