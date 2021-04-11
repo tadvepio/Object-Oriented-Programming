@@ -25,14 +25,14 @@ class Data_manager():
         except FileNotFoundError:
             return "false"
                 
-    def account_details(self,uname, fname,lname,balance,minc,mexp):
+    def account_details(self,uname, fname,lname,balance,minc,mexp,pay):
         key = Fernet.generate_key()
         ukey = open(uname+'_key','wb')
         ukey.write(key)
         ukey.close()
         fernet = Fernet(key)
         self.__data = open(uname+'_data','wb')
-        flb = fname+"\n"+lname+"\n"+balance+"\n"+minc+"\n"+mexp
+        flb = fname+"\n"+lname+"\n"+balance+"\n"+minc+"\n"+mexp+"\n"+pay
         flb = flb.encode()
         self.__data.write(fernet.encrypt(flb))
         self.__data.close()

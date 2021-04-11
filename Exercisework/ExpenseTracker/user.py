@@ -9,8 +9,8 @@ class User:
         self.__name = name
         self.__lastname = lastname
         self.__balance = int(balance)
-        self.__monthly_income = int(minc)
-        self.__monthly_expenses = int(mexp)
+        self.__monthly_income = minc
+        self.__monthly_expenses = mexp
 
     def set_name(self,name):
         self.__name = name
