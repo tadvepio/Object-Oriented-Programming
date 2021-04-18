@@ -9,11 +9,15 @@ from user import User
 
 class Data_manager():
 
+    # Writes down and saves username and the password(converted to hash)
+    # into a txt file.
     def create_user(self,uname,passwrd):
         self.__data = open(uname+'.txt','w')
         self.__data.write(hashlib.sha256(passwrd.encode()).hexdigest())
         self.__data.close()
 
+    # Used for checking if the user exists. If it exists, compare
+    # the input password as hash to the stored hash.
     def confirm_login(self,uname,passwrd):
         try:
             self.__data = open(uname+'.txt','r')
@@ -24,7 +28,8 @@ class Data_manager():
                     return None
         except FileNotFoundError:
             return "false"
-                
+
+    # Writes the user details in a binaryfile and save it            
     def account_details(self,uname, fname,lname,balance,minc,mexp,pay):
         key = Fernet.generate_key()
         ukey = open(uname+'_key','wb')
@@ -37,6 +42,7 @@ class Data_manager():
         self.__data.write(fernet.encrypt(flb))
         self.__data.close()
 
+    # Opens data based on username and returns the details as a list.
     def get_details(self,uname):
         ukey = open(uname+'_key','rb')
         key = ukey.read()
@@ -51,3 +57,6 @@ class Data_manager():
         details = data2.split("\n")
         print(details)
         return details
+
+
+        
